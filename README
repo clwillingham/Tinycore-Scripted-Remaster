@@ -1,0 +1,32 @@
+Tinycore Scripted Remaster
+=========================
+Tinycore Scripted Remaster is a simple remastering system which relies heavily on Makefile scripts. The project was originally going to be used to build an Operating system i was planning to write, but it turned out Tinycore was not the right system to base it off of. But it seemed a shame to just throw everything away, so i just figured i'd post it on github and see what people make with it.
+
+Dependencies:
+------------
+* Tinycore Linux iso
+* make
+* qemu (if you want to run it from an emulator you must have this installed)
+* gzip
+* cpio
+* advdef
+* wget (if you want to download packages)
+* python (if you want to download packages)
+
+Instructions
+-------------
+
+The project is split into two main sections, Extras and Packages. Both can be found in the src directory. 
+
+the Extras directory is copied into tinycore filesystem before it is compiled into the iso. Anything you place in the Extras directory will end up in the iso. the everything in the extras directory is recursively placed into the root of the tinycore filesystem. This means that if you want to put something in a specific directory, you just need to put it in that directory on extras and it will be transferred properly.
+
+The Packages directory is where tinycore packages may be setup. there are some simple scripts to make things a little easier. to add a package, use 
+  cd <project directory>/src/packages
+	./addPkg.py <packageName>.tcz
+	./unsquashall.sh
+	
+The package and all its dependencies will ba downloaded from the tinycore mirror the unsquashall.sh script unpackages all of the scripts into squashfs-root.
+
+issues
+--------
+I know there are a lot of issues, the addPkg.py is quite buggy and occasionally fails to download a few packages, feel free to post them in the issues section, or better, fork the project and try and fix a few if you have the time.
