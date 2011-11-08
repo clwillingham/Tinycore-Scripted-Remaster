@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Set Time
+Exec=sudo /usr/bin/getTime.sh
+Icon=logo
+X-FullPathIcon=/usr/share/pixmaps/logo.png
+Type=Application
+Categories=System;

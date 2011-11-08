@@ -1,0 +1,15 @@
+#!/bin/sh
+TARGET="$1"
+[ -n "$TARGET" ] || exit 1
+LINENO=`grep -n "^t: *${TARGET}$" /usr/local/tce.icons|head -1|cut -f1 -d:`
+if [ -n "$LINENO" ] && [ "$LINENO" -gt 3 ]; then
+   BEGNO=`busybox expr ${LINENO} - 1`
+   ENDNO=`busybox expr ${LINENO} + 1`
+   TMP=/tmp/sed.$$
+   sed ${BEGNO},${ENDNO}d /usr/local/tce.icons > "$TMP"
+   sudo mv "$TMP" /usr/local/tce.icons
+   sudo chown root.staff /usr/local/tce.icons
+   sudo chmod g+w /usr/local/tce.icons
+else
+   exit 1
+fi

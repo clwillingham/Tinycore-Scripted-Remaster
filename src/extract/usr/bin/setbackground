@@ -1,0 +1,37 @@
+#!/bin/sh
+# (c) Robert Shingledecker 2009,2010,2011
+# flwm_set_background
+
+# $1 logo (y/n)
+# $2 solid/gradient/image
+# $3 color
+# $4 color1 gradient only
+# $5 color2 gradient only
+
+[ -z "$1" ] && exit 1
+[ -z "$2" ] && exit 1
+[ -z "$3" ] && exit 1
+SETBKG="$HOME"/.setbackground
+
+DISPLAY_LOGO=" -center /usr/share/pixmaps/logo.png"
+[ "$1" == "n" ] && DISPLAY_LOGO=""
+
+case $2 in
+  solid)
+    command="hsetroot -solid "
+    printf '#!/bin/sh\n%s"%s"%s' "$command" "$3" "$DISPLAY_LOGO" > "$SETBKG"
+  ;;
+  gradient)
+    [ -z "$4" ] && exit 1
+    [ -z "$5" ] && exit 1
+    command="hsetroot "
+    printf '#!/bin/sh\n%s%s"%s"%s"%s"%s%s%s' "$command" " -add " "$4" " -add " "$5" " -gradient " "$3" "$DISPLAY_LOGO" > "$SETBKG"
+  ;;
+  *)
+    command="hsetroot -$2 "
+    printf '#!/bin/sh\n%s%s' "$command" "$3" > "$SETBKG"
+  ;;
+esac
+printf '\n[ -x /usr/bin/wbar.sh ] && wbar.sh' >> "$SETBKG"
+chmod +x "$SETBKG"
+$SETBKG

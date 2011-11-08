@@ -1,0 +1,46 @@
+#!/bin/sh
+[ -f /tmp/xsetup_requested ] && /usr/bin/xsetup.sh
+
+if [ x"$XAUTHORITY" = x ]; then
+    XAUTHORITY=$HOME/.Xauthority
+    export XAUTHORITY
+fi
+
+hostname=`hostname`
+
+authdisplay=${display:-:0}
+mcookie=`mcookie`
+for displayname in $authdisplay $hostname$authdisplay; do
+    if ! xauth list "$displayname" 2>/dev/null | grep -q "$displayname "; then
+	xauth add $displayname . $mcookie  2>/dev/null
+	removelist="$displayname $removelist"
+    fi
+done
+
+export DISPLAY=:0.0
+
+if [ -s /etc/sysconfig/icons ]; then
+  export ICONS=`cat /etc/sysconfig/icons`
+  [ $(which "$ICONS"_setup.sh) ] && "$ICONS"_setup.sh
+fi
+if [ -s /etc/sysconfig/desktop ]; then
+  export DESKTOP=`cat /etc/sysconfig/desktop`
+  [ `which "$DESKTOP"_initmenu` ] && sudo "$DESKTOP"_initmenu
+  FREEDESKTOP="/usr/local/share/applications"
+  if [ "$(ls -A $FREEDESKTOP 2>/dev/null)" ]; then
+    for F in $(ls "$FREEDESKTOP"/*.desktop | grep -Ev '(~[1-9][1-9]*)'.desktop); do
+      APPNAME="${F%.desktop}"
+      APPNAME="${APPNAME##*/}"
+      desktop.sh "$APPNAME"
+    done
+  fi
+fi
+
+if [ -s "$HOME/.xsession" ]; then
+  XSERVER=`cat /etc/sysconfig/Xserver`
+  grep -q $XSERVER $HOME/.xsession || /usr/bin/xsetup.sh booting
+  exec $HOME/.xsession 2>/dev/null
+else
+  /usr/bin/xsetup.sh
+  exec $HOME/.xsession
+fi

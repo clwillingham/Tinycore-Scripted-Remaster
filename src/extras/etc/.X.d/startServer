@@ -1,0 +1,1 @@
+chromium-browser --no-sandbox --kiosk http://www.google.com

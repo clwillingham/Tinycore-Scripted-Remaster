@@ -1,0 +1,43 @@
+#!/bin/sh
+[ -f "$HOME/.setbackground" ] || exit 1
+awk '
+function check4hex(target) {
+  pos = index("ABCDEF",target)
+  if (pos > 0 )
+    result = 9 + pos
+  else
+    result = target
+  return result
+}
+
+
+function printLine(hex_string) {
+    red_dec = hex2dec(substr(hex_string,1,2))
+    r = red_dec/255  + .0005
+    printf("%.3f ", r)
+    green_dec = hex2dec(substr(hex_string,3,2))
+    g = green_dec/255 + .0005
+    printf("%.3f ", g)
+    blue_dec = hex2dec(substr(hex_string,5,2))
+    b = blue_dec/255 + .0005
+    printf("%.3f ", b)
+}
+
+
+function hex2dec(h) {
+  h1 = check4hex(substr(h,1,1))
+  h0 = check4hex(substr(h,2,1))
+  return h1*16 + h0
+}
+{
+  if ( match($3,"#") )
+  {
+     hex_string = substr($3,3,6)
+     printLine(hex_string)
+  }
+  if ( match($5,"#") )
+  {
+     hex_string = substr($5,3,6)
+     printLine(hex_string)
+  }
+} ' "$HOME"/.setbackground > /tmp/current_rgb

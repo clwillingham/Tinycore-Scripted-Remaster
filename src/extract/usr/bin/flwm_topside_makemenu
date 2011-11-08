@@ -1,0 +1,30 @@
+#!/bin/sh
+# (c) Robert Shingledecker 2009
+# Typically called from /usr/bin/desktop.sh
+# makemenu APPNAME
+
+. /usr/bin/flwm_topside_menu_common
+
+[ -z "$1" ] && exit 1
+USER="$(cat /etc/sysconfig/tcuser)"
+HOME=/home/"$USER"
+TARGET="$HOME"/.wmx/Applications
+if [ ! -d "$TARGET" ] ; then
+  mkdir -p "$TARGET"
+  chmod g+w "$TARGET"
+fi
+
+# Check for freedesktop item
+FREEDESK="/usr/local/share/applications"
+if [ -s "$FREEDESK"/"$1".desktop ]; then
+  if [ -s "$FREEDESK"/"$1"~1.desktop ]; then
+    mkdir -p "$TARGET"/$1
+    TARGET="$TARGET"/$1
+    for F in $(ls "$FREEDESK"/$1* | grep -E '(~[1-9][1-9]*)*'.desktop); do
+      writeFLWMitem "$F"
+    done
+  else
+    writeFLWMitem  "${FREEDESK}/${1}.desktop"
+  fi
+fi
+[ -G /tmp/.X11-unix/X0 ] && [ $(which "$DESKTOP"_restart) ] && "$DESKTOP"_restart

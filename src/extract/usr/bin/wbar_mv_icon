@@ -1,0 +1,18 @@
+#!/bin/sh
+ITEM="$1"
+[ -n "$ITEM" ] || exit 1
+FROMFILE="$2"
+[ -n "$FROMFILE" ] || exit 1
+TOFILE="$3"
+[ -n "$TOFILE" ] || exit 1
+LINENO=`grep -n ${ITEM}$ ${FROMFILE} | head -1 | cut -f1 -d:`
+if [ -n "$LINENO" ]; then
+   BEGNO=`busybox expr ${LINENO} - 1`
+   ENDNO=`busybox expr ${LINENO} + 1`
+   sed -n ${BEGNO},${ENDNO}p ${FROMFILE} >> ${TOFILE}
+   TMP=/tmp/sed.$$
+   sed ${BEGNO},${ENDNO}d ${FROMFILE} > "$TMP"
+   sudo mv "$TMP" ${FROMFILE}
+   sudo chown root.staff ${FROMFILE}
+   sudo chmod g+w ${FROMFILE}
+fi

@@ -1,0 +1,178 @@
+#!/bin/sh
+# (c) Robert Shingledecker 2009,2011
+
+alias awk="busybox awk"
+alias cp="busybox cp"
+alias expr="busybox expr"
+alias ls="busybox ls"
+alias mount="busybox mount"
+alias umount="busybox umount"
+alias sudo='sudo '
+
+. /etc/init.d/tc-functions
+
+selectList() {
+	SELECTLIST=/tmp/ondemand.tmp
+	for F in `ls "$TCEDIR"/optional/*.tcz 2>/dev/null`; do
+		ITEM="${F##*/}"
+		
+#		Remove onboot items from select for on demand.
+		if ! grep -qw "$ITEM" "$TCEDIR"/"$ONBOOTNAME"; then
+			echo "$ITEM" >> "$SELECTLIST"
+		fi
+	done
+	
+#	Next remove current OnDemand items from SELECTLIST
+	if [ -s "$SELECTLIST" ]; then
+		TMP="/tmp/ondemand.$$"
+		TMP2="/tmp/ondemand2.$$"
+		ls -1 $TCEDIR/ondemand 2>/dev/null | grep -v ".img$" | sort -f > "$TMP"
+		if [ -s "$TMP" ]; then
+			while read F; do
+				if ! grep -qw ${F%.tcz} "$TMP"; then echo $F >> "$TMP2"; fi
+			done < "$SELECTLIST"
+			mv "$TMP2" "$SELECTLIST"
+			rm "$TMP"
+		fi
+	fi
+}
+
+removeItem() {
+#	Remove on demand item script and generic icon.
+	rm -f ${TCEDIR}/ondemand/"$APPNAME"
+	rm -f ${TCEDIR}/ondemand/"$APPNAME".i*
+	[ $(which "$DESKTOP"_ondemand) ] && "$DESKTOP"_ondemand 2>/dev/null
+	[ $(which "$DESKTOP"_restart) ] && "$DESKTOP"_restart 2>/dev/null
+	
+#	Check to see if freedesktop item needs removal
+	FILE="$LOCALDIR"/ondemand-"$APPNAME".desktop
+	[ -e "$FILE" ] && rm -f "$FILE"
+	
+#	Check to see if need to update wbar.
+	if [ ! "$APP_INSTALLED" ] && [ "$ICONS" ]; then
+		wbar_rm_icon $APPNAME.img && wbar.sh
+	fi
+}
+
+2>/dev/null read TCEDIR < /opt/.tce_dir || exit 1
+2>/dev/null read ICONS < /etc/sysconfig/icons
+2>/dev/null read DESKTOP < /etc/sysconfig/desktop
+
+ONBOOTNAME="$(getbootparam lst 2>/dev/null)"
+[ -n "$ONBOOTNAME" ] || ONBOOTNAME="onboot.lst"
+
+LOCALDIR="$HOME"/.local/share/applications
+
+[ -d /mnt/test ] || sudo mkdir -p /mnt/test
+
+while getopts lr OPTION
+do
+	case ${OPTION} in
+		l) LISTITEMS=1 ;;
+		r) REMOVEITEM=1 ;;
+	esac
+done
+shift `expr $OPTIND - 1`
+
+if [ "$LISTITEMS" ]; then
+	selectList
+	exit 0
+fi
+
+if  [ -n "$1" ]; then
+	EXTN=${1%%.tcz}
+	if [ ${EXTN} == ${1} ]; then EXTN=${1}.tcz; else EXTN=${1}; fi
+	APPNAME="${EXTN%.*}"
+else
+	exit 1
+fi
+
+if [ "$REMOVEITEM" ]; then
+	removeItem
+	exit 0
+fi
+
+unset APP_INSTALLED
+if installed ${APPNAME}; then
+	FREEDESK="/tmp/tcloop/${APPNAME}"
+	APP_INSTALLED=1
+else
+	sudo mount "$TCEDIR"/optional/"$EXTN" /mnt/test -t squashfs -o loop,ro,bs=4096
+	[ "$?" == 0 ] || exit 1
+	FREEDESK="/mnt/test"
+fi
+
+TITLE=""; BINARY=""; SUDO=""; TERM=""
+# Check for freedesktop item
+FREEDESK=${FREEDESK}"/usr/local/share/applications"
+if [ -s "$FREEDESK"/"${APPNAME}".desktop ]; then
+	TITLE="$(awk 'BEGIN{FS = "="}$1=="Name"{print $2}' "$FREEDESK"/"${APPNAME}".desktop)"
+	TITLE="${TITLE// /_}"
+	BINARY="$(awk 'BEGIN{FS = "="}$1=="Exec"{print $2}' "$FREEDESK"/"${APPNAME}".desktop)"
+	BINARY="${BINARY%%%*}"
+	if stringinstring "sudo" "$BINARY" ; then
+		SUDO="sudo"
+		BINARY="${BINARY/sudo /}"
+	fi
+	if stringinstring "cliorx" "$BINARY" ; then
+		TERM="cliorx"
+		BINARY="${BINARY/cliorx /}"
+	fi
+fi
+if [ "$TITLE" == "" ] || [ "$BINARY" == "" ]; then
+	[ "$TITLE" == "" ] && TITLE="$APPNAME"
+	[ "$BINARY" == "" ] && BINARY="none"
+fi
+
+# Generic shell script for OnDemand by all WMs
+[ -d "$TCEDIR"/ondemand ] || mkdir -p "$TCEDIR"/ondemand
+FILE="$TCEDIR"/ondemand/"$APPNAME"
+echo '#!/bin/sh' > "$FILE"
+echo 'SAVE_ARGS=$*' >> "$FILE"
+echo '2>/dev/null read TCEDIR < /opt/.tce_dir || exit 1' >> "$FILE"
+echo 'if [ ! -e /usr/local/tce.installed/'"$APPNAME"' ]; then' >> "$FILE"
+echo '  tce-load -is '"\$TCEDIR"'/optional/'"$EXTN" >> "$FILE"
+echo 'fi' >> "$FILE"
+if [ "$BINARY" != "none" ]; then
+	BTEST="${BINARY%% -*}"
+	BTEST="${BTEST#sudo }"
+	echo '[ $(which '"$BTEST"') ] && 'exec "$TERM" "$SUDO" "$BINARY"' ${SAVE_ARGS}' >> "$FILE"
+fi
+chmod +x "$FILE"
+
+# Now check for wbar icons if there is a single binary for this app.
+if [ ! "$APP_INSTALLED" ]; then
+	if [ "$ICONS" == "wbar" ] && [ "$BINARY" != "none" ] ; then
+		WBAR_ICON_DIR="/usr/local/tce.icons"
+		ICONCHECK="$(awk 'BEGIN{FS = "="}$1=="X-FullPathIcon"{print $2}' "$FREEDESK"/"${APPNAME}".desktop)"
+		if [ "$ICONCHECK" != "" ]; then
+			[ -e "$ICONCHECK" ] || ICONCHECK=/mnt/test/"$ICONCHECK"
+			if [ -e "$ICONCHECK" ]; then
+				[ -d "$TCEDIR"/ondemand ] || mkdir "$TCEDIR"/ondemand
+				cp "$ICONCHECK" "$TCEDIR"/ondemand/"$APPNAME".img
+				echo "i: $TCEDIR"/ondemand/"$APPNAME".img >> "$WBAR_ICON_DIR"
+				echo "t: $APPNAME" >>  "$WBAR_ICON_DIR"
+				echo "c: $FILE" >> "$WBAR_ICON_DIR"
+				wbar.sh
+			fi
+		fi
+	fi
+	umount -d /mnt/test
+fi
+
+# Optional as flwm does not need a make_ondemand.
+[ $(which ${DESKTOP}_ondemand) ] && ${DESKTOP}_ondemand "$APPNAME"
+
+if [ $(which ${DESKTOP}_restart) ]; then
+	${DESKTOP}_restart
+else
+	[ -d "$LOCALDIR" ] || mkdir -p "$LOCALDIR"
+	FILE="$LOCALDIR"/ondemand-"$APPNAME".desktop
+	echo "[Desktop Entry]" > "$FILE"
+	echo "Type=Application" >> "$FILE"
+	echo "Name=OnDemand $APPNAME" >> "$FILE"
+	echo "Exec=$APPNAME" >> "$FILE"
+	echo "Icon=logo.png" >> "$FILE"
+	echo "X-FullPathIcon=/usr/share/pixmaps/logo.png" >> "$FILE"
+	echo "Catgeories=Other;" >> "$FILE"
+fi

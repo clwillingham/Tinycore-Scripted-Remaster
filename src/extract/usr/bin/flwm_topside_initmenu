@@ -1,0 +1,19 @@
+#!/bin/sh
+# (c) Robert Shingledecker 2010
+# Called from startx to setup menu
+
+. /usr/bin/flwm_topside_menu_common
+
+USER="$(cat /etc/sysconfig/tcuser)"
+SYSMENU=/home/"$USER"/.wmx
+
+[ -d "$SYSMENU" ] && rm -rf "$SYSMENU"
+mkdir -p "$SYSMENU"
+
+TARGET="$SYSMENU"/SystemTools && mkdir "$TARGET"
+sync
+for D in `ls /usr/share/applications/tinycore-*`; do
+   writeFLWMitem "$D"
+done
+
+flwm_topside_ondemand

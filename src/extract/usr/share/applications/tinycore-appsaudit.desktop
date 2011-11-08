@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=AppsAudit
+Exec=appsaudit
+Icon=appsaudit
+X-FullPathIcon=/usr/share/pixmaps/appsaudit.png
+Type=Application
+Categories=System;

@@ -1,0 +1,20 @@
+#!/bin/sh
+# (c) Robert Shingledecker 2010
+# Called from ondemand script
+
+USER="$(cat /etc/sysconfig/tcuser)"
+SYSMENU=/home/"$USER"/.wmx
+[ -d "$SYSMENU" ] || mkdir -p "$SYSMENU"
+
+TCEDIR="$(cat /opt/.tce_dir)"
+[ -d "$SYSMENU"/OnDemand ] && rm -rf "$SYSMENU"/OnDemand
+if [ ! -z "$(ls -A "$TCEDIR"/ondemand 2>/dev/null)" ]
+then
+  mkdir "$SYSMENU"/OnDemand
+  for F in `ls -1 "$TCEDIR"/ondemand/* | grep -v ".img$"`; do
+    cp "$F" "$SYSMENU"/OnDemand
+  done
+fi
+
+chown ${USER}.staff -R /home/${USER}/.wmx
+

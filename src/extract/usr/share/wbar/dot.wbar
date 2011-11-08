@@ -1,0 +1,28 @@
+# The Bar && Font && Font size (11)
+i: /usr/share/wbar/osxbarback.png
+t: /usr/share/fonts/luxisr/11
+c:
+i: /usr/share/pixmaps/power.png
+t: Exit
+c: exec exittc
+i: /usr/share/pixmaps/aterm.png
+t: Aterm
+c: exec aterm
+i: /usr/share/pixmaps/appsaudit.png
+t: AppsAudit
+c: exec appsaudit
+i: /usr/share/pixmaps/editor.png
+t: Editor
+c: exec editor
+i: /usr/share/pixmaps/cpanel.png
+t: Panel
+c: exec cpanel
+i: /usr/share/pixmaps/appbrowser.png
+t: AppBrowser
+c: exec appbrowser
+i: /usr/share/pixmaps/run.png
+t: Run
+c: exec flrun
+i: /usr/share/pixmaps/disk.png
+t: Mount
+c: exec mnttool

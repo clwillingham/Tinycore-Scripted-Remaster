@@ -1,0 +1,14 @@
+At boot prompt enter tc followed by one or more space seperated options:
+
+ tce={hda1|sda1}            Specify Restore TCE apps directory
+ restore={hda1|sda1|floppy} Specify saved configuration location
+ waitusb=X                  Wait X seconds for slow USB devices
+ swapfile{=hda1}            Scan or Specify swapfile
+ home={hda1|sda1}           Specify persistent home directory
+ opt={hda1|sda1}            Specify persistent opt directory
+ lst=yyy.lst                Load alternate static yyy.lst on boot
+ base                       Skip TCE load only the base system
+ norestore                  Turn off the automatic restore
+ safebackup                 Saves a backup copy (mydatabk.tgz)
+ showapps                   Display application names when booting
+ 

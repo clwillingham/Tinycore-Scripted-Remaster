@@ -1,0 +1,20 @@
+#!/bin/sh
+# (c) Robert Shingledecker 2010
+[ -z $1 ] && exit 1
+TARGET=$1
+EXTN=${1##/*/}
+APP=${EXTN%%.tcz}
+SAVE_ARGS=${*##${APP}}
+2>/dev/null read TCEDIR < /opt/.tce_dir || exit 1
+[ ${TARGET} == ${EXTN} ] && TARGET=${TCEDIR}/optional/${EXTN}
+[ ${EXTN} == ${APP} ] && TARGET=${TARGET}.tcz
+if [ ! -e /usr/local/tce.installed/${APP} ]; then
+  tce-load -is ${TARGET}
+fi
+if [ -f /usr/local/share/applications/${APP}.desktop ]; then
+  RUN=`cat /usr/local/share/applications/${APP}.desktop | grep Exec | cut -f2 -d=`
+  exec ${RUN} ${SAVE_ARGS}
+else
+  [ $(which ${APP} ) ] && exec ${APP} ${SAVE_ARGS}
+fi
+

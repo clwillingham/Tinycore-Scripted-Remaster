@@ -1,0 +1,8 @@
+#!/bin/sh
+cat /etc/issue
+if [ -f /var/log/autologin ] ; then
+    exec login
+else
+    touch /var/log/autologin
+    exec login -f root
+fi

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Editor
+Exec=editor
+Icon=editor
+X-FullPathIcon=/usr/share/pixmaps/editor.png
+Type=Application
+OnlyShowIn=Old;
+Categories=System;

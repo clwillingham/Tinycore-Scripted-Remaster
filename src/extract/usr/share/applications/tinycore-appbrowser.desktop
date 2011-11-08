@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=AppBrowser
+Exec=appbrowser
+Icon=appbrowser
+X-FullPathIcon=/usr/share/pixmaps/appbrowser.png
+Type=Application
+Categories=System;

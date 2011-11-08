@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Top
+Exec=top
+Icon=logo
+X-FullPathIcon=/usr/share/pixmaps/logo.png
+Type=Application
+Terminal=true
+Categories=System;

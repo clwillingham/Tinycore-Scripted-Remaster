@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Terminal
+Exec=aterm 
+Type=Application
+X-FullPathIcon=/usr/share/pixmaps/aterm.png
+Icon=aterm
+OnlyShowIn=Old;
+Categories=System;

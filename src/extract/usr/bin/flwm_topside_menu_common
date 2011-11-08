@@ -1,0 +1,31 @@
+#!/bin/sh
+# (c) Robert Shingledecker 2010
+# Called from tc-config to setup initial flwm system menu & tce menu
+
+writeFLWMitem() {
+busybox awk -v output="$TARGET" '
+BEGIN {
+  FS = "="
+}
+{
+  if ( $1 == "Name") {
+    name = $2
+    gsub(/ /, "", name)
+  } else if ( $1 == "Exec" ) {
+    exec = $2
+    test = match(exec,"%")
+    if ( test ) exec = substr(exec,0,test-1)
+  } else if ( $1 == "Terminal" ) {
+    terminal = $2
+  }
+}
+END {
+  print "#!/bin/sh" > output"/"name
+  if ( terminal == "true" ) {
+     print "exec aterm +tr +sb -T \""name"\" -e " exec > output"/"name
+  } else {
+    print "exec " exec > output"/"name
+  }
+  system("chmod +x "output"/"name)
+} ' "$1"
+}

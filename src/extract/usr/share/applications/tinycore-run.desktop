@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=RunProgram
+Exec=flrun
+Icon=run
+X-FullPathIcon=/usr/share/pixmaps/run.png
+Type=Application
+OnlyShowIn=Old;
+Categories=System;

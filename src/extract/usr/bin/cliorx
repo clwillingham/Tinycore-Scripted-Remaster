@@ -1,0 +1,4 @@
+#!/bin/sh
+#Generic wrapper for hosting Terminal when called from X
+HOST="aterm +tr +sb -T Terminal -e "
+[ -G /tmp/.X11-unix/X0 ] && exec $HOST$@ || $@

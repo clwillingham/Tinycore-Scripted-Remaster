@@ -1,0 +1,399 @@
+kernel/drivers/char/lp.ko.gz: kernel/drivers/parport/parport.ko.gz
+kernel/drivers/char/ppdev.ko.gz: kernel/drivers/parport/parport.ko.gz
+kernel/drivers/char/hw_random/via-rng.ko.gz:
+kernel/drivers/char/hw_random/intel-rng.ko.gz:
+kernel/drivers/char/hw_random/virtio-rng.ko.gz:
+kernel/drivers/char/hw_random/geode-rng.ko.gz:
+kernel/drivers/char/hw_random/timeriomem-rng.ko.gz:
+kernel/drivers/char/hw_random/amd-rng.ko.gz:
+kernel/drivers/char/toshiba.ko.gz:
+kernel/drivers/char/i8k.ko.gz:
+kernel/drivers/block/loop.ko.gz:
+kernel/drivers/block/nbd.ko.gz:
+kernel/drivers/block/virtio_blk.ko.gz:
+kernel/drivers/block/aoe/aoe.ko.gz:
+kernel/drivers/block/floppy.ko.gz:
+kernel/drivers/connector/cn.ko.gz:
+kernel/drivers/pci/pci-stub.ko.gz:
+kernel/drivers/tty/serial/serial_cs.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/tty/ipwireless/ipwireless.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/tty/nozomi.ko.gz:
+kernel/drivers/ssb/ssb.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/video/fb_sys_fops.ko.gz:
+kernel/drivers/video/sysimgblt.ko.gz:
+kernel/drivers/video/syscopyarea.ko.gz:
+kernel/drivers/video/display/display.ko.gz:
+kernel/drivers/video/output.ko.gz:
+kernel/drivers/video/udlfb.ko.gz: kernel/drivers/video/fb_sys_fops.ko.gz kernel/drivers/video/sysfillrect.ko.gz kernel/drivers/video/syscopyarea.ko.gz kernel/drivers/video/sysimgblt.ko.gz
+kernel/drivers/video/sysfillrect.ko.gz:
+kernel/drivers/video/backlight/progear_bl.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/video/backlight/apple_bl.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/video/backlight/kb3886_bl.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/video/backlight/backlight.ko.gz:
+kernel/drivers/video/backlight/generic_bl.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/video/backlight/lcd.ko.gz:
+kernel/drivers/video/backlight/adp8860_bl.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/video/backlight/platform_lcd.ko.gz: kernel/drivers/video/backlight/lcd.ko.gz
+kernel/drivers/video/backlight/adp8870_bl.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/parport/parport_pc.ko.gz: kernel/drivers/parport/parport.ko.gz
+kernel/drivers/parport/parport.ko.gz:
+kernel/drivers/hid/hid-ntrig.ko.gz:
+kernel/drivers/hid/hid-keytouch.ko.gz:
+kernel/drivers/hid/hid-picolcd.ko.gz: kernel/drivers/video/fb_sys_fops.ko.gz kernel/drivers/video/backlight/backlight.ko.gz kernel/drivers/video/backlight/lcd.ko.gz kernel/drivers/video/sysfillrect.ko.gz kernel/drivers/video/syscopyarea.ko.gz kernel/drivers/video/sysimgblt.ko.gz
+kernel/drivers/hid/hid-magicmouse.ko.gz:
+kernel/drivers/hid/hid-sunplus.ko.gz:
+kernel/drivers/hid/hid-apple.ko.gz:
+kernel/drivers/hid/hid-monterey.ko.gz:
+kernel/drivers/hid/hid-sony.ko.gz:
+kernel/drivers/hid/hid-zydacron.ko.gz:
+kernel/drivers/hid/hid-prodikeys.ko.gz:
+kernel/drivers/hid/hid-pl.ko.gz: kernel/drivers/input/ff-memless.ko.gz
+kernel/drivers/hid/hid-dr.ko.gz: kernel/drivers/input/ff-memless.ko.gz
+kernel/drivers/hid/hid-elecom.ko.gz:
+kernel/drivers/hid/hid-quanta.ko.gz:
+kernel/drivers/hid/hid-logitech.ko.gz: kernel/drivers/input/ff-memless.ko.gz
+kernel/drivers/hid/hid-zpff.ko.gz: kernel/drivers/input/ff-memless.ko.gz
+kernel/drivers/hid/hid-wacom.ko.gz:
+kernel/drivers/hid/hid-roccat-arvo.ko.gz: kernel/drivers/hid/hid-roccat-common.ko.gz kernel/drivers/hid/hid-roccat.ko.gz
+kernel/drivers/hid/hid-cherry.ko.gz:
+kernel/drivers/hid/hid-roccat-common.ko.gz:
+kernel/drivers/hid/hid-samsung.ko.gz:
+kernel/drivers/hid/hid-ortek.ko.gz:
+kernel/drivers/hid/hid-cypress.ko.gz:
+kernel/drivers/hid/hid-roccat-kone.ko.gz: kernel/drivers/hid/hid-roccat-common.ko.gz kernel/drivers/hid/hid-roccat.ko.gz
+kernel/drivers/hid/hid-uclogic.ko.gz:
+kernel/drivers/hid/hid-multitouch.ko.gz:
+kernel/drivers/hid/hid-belkin.ko.gz:
+kernel/drivers/hid/hid-petalynx.ko.gz:
+kernel/drivers/hid/hid-roccat.ko.gz:
+kernel/drivers/hid/hid-sjoy.ko.gz: kernel/drivers/input/ff-memless.ko.gz
+kernel/drivers/hid/hid-kye.ko.gz:
+kernel/drivers/hid/hid-ezkey.ko.gz:
+kernel/drivers/hid/hid-roccat-koneplus.ko.gz: kernel/drivers/hid/hid-roccat.ko.gz kernel/drivers/hid/hid-roccat-common.ko.gz
+kernel/drivers/hid/hid-axff.ko.gz:
+kernel/drivers/hid/hid-gyration.ko.gz:
+kernel/drivers/hid/hid-waltop.ko.gz:
+kernel/drivers/hid/hid-microsoft.ko.gz:
+kernel/drivers/hid/hid-gaff.ko.gz: kernel/drivers/input/ff-memless.ko.gz
+kernel/drivers/hid/hid-emsff.ko.gz: kernel/drivers/input/ff-memless.ko.gz
+kernel/drivers/hid/hid-roccat-pyra.ko.gz: kernel/drivers/hid/hid-roccat.ko.gz kernel/drivers/hid/hid-roccat-common.ko.gz
+kernel/drivers/hid/hid-kensington.ko.gz:
+kernel/drivers/hid/hid-tmff.ko.gz: kernel/drivers/input/ff-memless.ko.gz
+kernel/drivers/hid/hid-topseed.ko.gz:
+kernel/drivers/hid/hid-chicony.ko.gz:
+kernel/drivers/hid/hid-twinhan.ko.gz:
+kernel/drivers/hid/hid-lcpower.ko.gz:
+kernel/drivers/hid/hid-a4tech.ko.gz:
+kernel/drivers/hid/hid-roccat-kovaplus.ko.gz: kernel/drivers/hid/hid-roccat.ko.gz kernel/drivers/hid/hid-roccat-common.ko.gz
+kernel/drivers/platform/x86/eeepc-wmi.ko.gz: kernel/drivers/platform/x86/asus-wmi.ko.gz kernel/drivers/platform/x86/wmi.ko.gz kernel/drivers/video/backlight/backlight.ko.gz kernel/drivers/input/sparse-keymap.ko.gz
+kernel/drivers/platform/x86/asus-wmi.ko.gz: kernel/drivers/platform/x86/wmi.ko.gz kernel/drivers/video/backlight/backlight.ko.gz kernel/drivers/input/sparse-keymap.ko.gz
+kernel/drivers/platform/x86/classmate-laptop.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/dell-wmi-aio.ko.gz: kernel/drivers/input/sparse-keymap.ko.gz kernel/drivers/platform/x86/wmi.ko.gz
+kernel/drivers/platform/x86/panasonic-laptop.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz kernel/drivers/input/sparse-keymap.ko.gz
+kernel/drivers/platform/x86/fujitsu-laptop.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/eeepc-laptop.ko.gz: kernel/drivers/input/sparse-keymap.ko.gz kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/dell-wmi.ko.gz: kernel/drivers/input/sparse-keymap.ko.gz kernel/drivers/platform/x86/wmi.ko.gz
+kernel/drivers/platform/x86/asus-nb-wmi.ko.gz: kernel/drivers/platform/x86/asus-wmi.ko.gz kernel/drivers/platform/x86/wmi.ko.gz kernel/drivers/video/backlight/backlight.ko.gz kernel/drivers/input/sparse-keymap.ko.gz
+kernel/drivers/platform/x86/intel_menlow.ko.gz:
+kernel/drivers/platform/x86/msi-laptop.ko.gz: kernel/drivers/input/sparse-keymap.ko.gz kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/hp-wmi.ko.gz: kernel/drivers/input/sparse-keymap.ko.gz kernel/drivers/platform/x86/wmi.ko.gz
+kernel/drivers/platform/x86/intel_oaktrail.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/hp_accel.ko.gz: kernel/drivers/misc/lis3lv02d/lis3lv02d.ko.gz kernel/drivers/input/input-polldev.ko.gz
+kernel/drivers/platform/x86/intel_ips.ko.gz:
+kernel/drivers/platform/x86/hdaps.ko.gz: kernel/drivers/input/input-polldev.ko.gz
+kernel/drivers/platform/x86/toshiba_acpi.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz kernel/drivers/input/sparse-keymap.ko.gz
+kernel/drivers/platform/x86/xo15-ebook.ko.gz:
+kernel/drivers/platform/x86/acerhdf.ko.gz:
+kernel/drivers/platform/x86/ideapad-laptop.ko.gz: kernel/drivers/input/sparse-keymap.ko.gz
+kernel/drivers/platform/x86/samsung-laptop.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/topstar-laptop.ko.gz: kernel/drivers/input/sparse-keymap.ko.gz
+kernel/drivers/platform/x86/toshiba_bluetooth.ko.gz:
+kernel/drivers/platform/x86/asus-laptop.ko.gz: kernel/drivers/input/sparse-keymap.ko.gz kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/compal-laptop.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/asus_acpi.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/wmi.ko.gz:
+kernel/drivers/platform/x86/mxm-wmi.ko.gz: kernel/drivers/platform/x86/wmi.ko.gz
+kernel/drivers/platform/x86/ibm_rtl.ko.gz:
+kernel/drivers/platform/x86/msi-wmi.ko.gz: kernel/drivers/input/sparse-keymap.ko.gz kernel/drivers/platform/x86/wmi.ko.gz kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/acer-wmi.ko.gz: kernel/drivers/platform/x86/wmi.ko.gz kernel/drivers/input/sparse-keymap.ko.gz kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/platform/x86/tc1100-wmi.ko.gz: kernel/drivers/platform/x86/wmi.ko.gz
+kernel/drivers/platform/x86/sony-laptop.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/usb/class/usblp.ko.gz:
+kernel/drivers/usb/class/cdc-acm.ko.gz:
+kernel/drivers/usb/class/cdc-wdm.ko.gz:
+kernel/drivers/usb/host/xhci-hcd.ko.gz:
+kernel/drivers/usb/misc/yurex.ko.gz:
+kernel/drivers/usb/misc/appledisplay.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/drivers/usb/storage/ums-realtek.ko.gz:
+kernel/drivers/pcmcia/pd6729.ko.gz: kernel/drivers/pcmcia/pcmcia_rsrc.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/pcmcia/i82365.ko.gz: kernel/drivers/pcmcia/pcmcia_rsrc.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/pcmcia/pcmcia_rsrc.ko.gz: kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/pcmcia/i82092.ko.gz: kernel/drivers/pcmcia/pcmcia_rsrc.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/pcmcia/pcmcia_core.ko.gz:
+kernel/drivers/pcmcia/pcmcia.ko.gz: kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/pcmcia/yenta_socket.ko.gz: kernel/drivers/pcmcia/pcmcia_rsrc.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/memstick/core/mspro_block.ko.gz: kernel/drivers/memstick/core/memstick.ko.gz
+kernel/drivers/memstick/core/memstick.ko.gz:
+kernel/drivers/memstick/host/r592.ko.gz: kernel/drivers/memstick/core/memstick.ko.gz
+kernel/drivers/memstick/host/jmb38x_ms.ko.gz: kernel/drivers/memstick/core/memstick.ko.gz
+kernel/drivers/memstick/host/tifm_ms.ko.gz: kernel/drivers/misc/tifm_core.ko.gz kernel/drivers/memstick/core/memstick.ko.gz
+kernel/drivers/bcma/bcma.ko.gz:
+kernel/drivers/mmc/core/mmc_core.ko.gz:
+kernel/drivers/mmc/host/sdricoh_cs.ko.gz: kernel/drivers/mmc/core/mmc_core.ko.gz kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/mmc/host/sdhci-pci.ko.gz: kernel/drivers/mmc/host/sdhci.ko.gz kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/mmc/host/ushc.ko.gz: kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/mmc/host/wbsd.ko.gz: kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/mmc/host/tifm_sd.ko.gz: kernel/drivers/misc/tifm_core.ko.gz kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/mmc/host/via-sdmmc.ko.gz: kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/mmc/host/sdhci-platform.ko.gz: kernel/drivers/mmc/host/sdhci.ko.gz kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/mmc/host/sdhci.ko.gz: kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/mmc/host/cb710-mmc.ko.gz: kernel/drivers/mmc/core/mmc_core.ko.gz kernel/drivers/misc/cb710/cb710.ko.gz
+kernel/drivers/mmc/host/vub300.ko.gz: kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/mmc/card/mmc_block.ko.gz: kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/mmc/card/sdio_uart.ko.gz: kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/misc/cb710/cb710.ko.gz:
+kernel/drivers/misc/iwmc3200top/iwmc3200top.ko.gz: kernel/drivers/mmc/core/mmc_core.ko.gz
+kernel/drivers/misc/tifm_core.ko.gz:
+kernel/drivers/misc/eeprom/eeprom_93cx6.ko.gz:
+kernel/drivers/misc/tifm_7xx1.ko.gz: kernel/drivers/misc/tifm_core.ko.gz
+kernel/drivers/misc/lis3lv02d/lis3lv02d.ko.gz: kernel/drivers/input/input-polldev.ko.gz
+kernel/drivers/scsi/scsi_wait_scan.ko.gz:
+kernel/drivers/ata/pata_pcmcia.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/net/macvtap.ko.gz: kernel/drivers/net/macvlan.ko.gz
+kernel/drivers/net/8139cp.ko.gz:
+kernel/drivers/net/ewrk3.ko.gz:
+kernel/drivers/net/82596.ko.gz:
+kernel/drivers/net/ni65.ko.gz:
+kernel/drivers/net/niu.ko.gz:
+kernel/drivers/net/smc-ultra.ko.gz: kernel/drivers/net/8390.ko.gz
+kernel/drivers/net/dl2k.ko.gz:
+kernel/drivers/net/znet.ko.gz:
+kernel/drivers/net/amd8111e.ko.gz:
+kernel/drivers/net/starfire.ko.gz:
+kernel/drivers/net/igb/igb.ko.gz:
+kernel/drivers/net/wd.ko.gz: kernel/drivers/net/8390.ko.gz
+kernel/drivers/net/ixgbevf/ixgbevf.ko.gz:
+kernel/drivers/net/eth16i.ko.gz:
+kernel/drivers/net/natsemi.ko.gz:
+kernel/drivers/net/vmxnet3/vmxnet3.ko.gz:
+kernel/drivers/net/acenic.ko.gz:
+kernel/drivers/net/seeq8005.ko.gz:
+kernel/drivers/net/ksz884x.ko.gz:
+kernel/drivers/net/ixgbe/ixgbe.ko.gz: kernel/drivers/net/mdio.ko.gz
+kernel/drivers/net/tulip/uli526x.ko.gz:
+kernel/drivers/net/tulip/dmfe.ko.gz:
+kernel/drivers/net/tulip/winbond-840.ko.gz:
+kernel/drivers/net/tulip/de2104x.ko.gz:
+kernel/drivers/net/tulip/tulip.ko.gz:
+kernel/drivers/net/tulip/de4x5.ko.gz:
+kernel/drivers/net/tulip/xircom_cb.ko.gz:
+kernel/drivers/net/yellowfin.ko.gz:
+kernel/drivers/net/3c501.ko.gz:
+kernel/drivers/net/atl1c/atl1c.ko.gz:
+kernel/drivers/net/cxgb4/cxgb4.ko.gz:
+kernel/drivers/net/3c509.ko.gz:
+kernel/drivers/net/cxgb3/cxgb3.ko.gz: kernel/drivers/net/mdio.ko.gz
+kernel/drivers/net/cassini.ko.gz:
+kernel/drivers/net/jme.ko.gz:
+kernel/drivers/net/e1000/e1000.ko.gz:
+kernel/drivers/net/bonding/bonding.ko.gz:
+kernel/drivers/net/mlx4/mlx4_core.ko.gz:
+kernel/drivers/net/mlx4/mlx4_en.ko.gz: kernel/drivers/net/mlx4/mlx4_core.ko.gz
+kernel/drivers/net/igbvf/igbvf.ko.gz:
+kernel/drivers/net/cxgb4vf/cxgb4vf.ko.gz:
+kernel/drivers/net/depca.ko.gz:
+kernel/drivers/net/smc9194.ko.gz:
+kernel/drivers/net/r8169.ko.gz:
+kernel/drivers/net/cs89x0.ko.gz:
+kernel/drivers/net/hamachi.ko.gz:
+kernel/drivers/net/s2io.ko.gz:
+kernel/drivers/net/dnet.ko.gz:
+kernel/drivers/net/ns83820.ko.gz:
+kernel/drivers/net/stmmac/stmmac.ko.gz:
+kernel/drivers/net/tg3.ko.gz:
+kernel/drivers/net/sunhme.ko.gz:
+kernel/drivers/net/sky2.ko.gz:
+kernel/drivers/net/virtio_net.ko.gz:
+kernel/drivers/net/smsc9420.ko.gz:
+kernel/drivers/net/ixgb/ixgb.ko.gz:
+kernel/drivers/net/epic100.ko.gz:
+kernel/drivers/net/3c507.ko.gz:
+kernel/drivers/net/enic/enic.ko.gz:
+kernel/drivers/net/lance.ko.gz:
+kernel/drivers/net/fealnx.ko.gz:
+kernel/drivers/net/typhoon.ko.gz:
+kernel/drivers/net/myri10ge/myri10ge.ko.gz:
+kernel/drivers/net/ks8851_mll.ko.gz:
+kernel/drivers/net/eexpress.ko.gz:
+kernel/drivers/net/ne.ko.gz: kernel/drivers/net/8390p.ko.gz
+kernel/drivers/net/ks8842.ko.gz:
+kernel/drivers/net/phy/et1011c.ko.gz:
+kernel/drivers/net/phy/lxt.ko.gz:
+kernel/drivers/net/phy/cicada.ko.gz:
+kernel/drivers/net/phy/qsemi.ko.gz:
+kernel/drivers/net/phy/realtek.ko.gz:
+kernel/drivers/net/phy/icplus.ko.gz:
+kernel/drivers/net/phy/ste10Xp.ko.gz:
+kernel/drivers/net/phy/mdio-bitbang.ko.gz:
+kernel/drivers/net/phy/micrel.ko.gz:
+kernel/drivers/net/phy/vitesse.ko.gz:
+kernel/drivers/net/phy/broadcom.ko.gz:
+kernel/drivers/net/phy/marvell.ko.gz:
+kernel/drivers/net/phy/davicom.ko.gz:
+kernel/drivers/net/phy/national.ko.gz:
+kernel/drivers/net/phy/smsc.ko.gz:
+kernel/drivers/net/ethoc.ko.gz:
+kernel/drivers/net/usb/kaweth.ko.gz:
+kernel/drivers/net/usb/zaurus.ko.gz: kernel/drivers/net/usb/cdc_ether.ko.gz kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/smsc95xx.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/catc.ko.gz:
+kernel/drivers/net/usb/cx82310_eth.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/kalmia.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/int51x1.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/cdc_ncm.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/usbnet.ko.gz:
+kernel/drivers/net/usb/cdc_subset.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/lg-vl600.ko.gz: kernel/drivers/net/usb/cdc_ether.ko.gz kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/smsc75xx.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/plusb.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/ipheth.ko.gz:
+kernel/drivers/net/usb/cdc_ether.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/rndis_host.ko.gz: kernel/drivers/net/usb/cdc_ether.ko.gz kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/asix.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/hso.ko.gz:
+kernel/drivers/net/usb/dm9601.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/mcs7830.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/rtl8150.ko.gz:
+kernel/drivers/net/usb/gl620a.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/cdc_eem.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/pegasus.ko.gz:
+kernel/drivers/net/usb/net1080.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/usb/sierra_net.ko.gz: kernel/drivers/net/usb/usbnet.ko.gz
+kernel/drivers/net/pcmcia/fmvj18x_cs.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/net/pcmcia/3c574_cs.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/net/pcmcia/nmclan_cs.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/net/pcmcia/pcnet_cs.ko.gz: kernel/drivers/net/8390.ko.gz kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/net/pcmcia/3c589_cs.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/net/pcmcia/axnet_cs.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/net/pcmcia/xirc2ps_cs.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/net/pcmcia/smc91c92_cs.ko.gz: kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/net/8390p.ko.gz:
+kernel/drivers/net/tlan.ko.gz:
+kernel/drivers/net/hp.ko.gz: kernel/drivers/net/8390p.ko.gz
+kernel/drivers/net/sundance.ko.gz:
+kernel/drivers/net/lp486e.ko.gz:
+kernel/drivers/net/e2100.ko.gz: kernel/drivers/net/8390.ko.gz
+kernel/drivers/net/qla3xxx.ko.gz:
+kernel/drivers/net/cnic.ko.gz:
+kernel/drivers/net/forcedeth.ko.gz:
+kernel/drivers/net/tehuti.ko.gz:
+kernel/drivers/net/bnx2x/bnx2x.ko.gz: kernel/drivers/net/mdio.ko.gz
+kernel/drivers/net/sungem_phy.ko.gz:
+kernel/drivers/net/veth.ko.gz:
+kernel/drivers/net/eepro.ko.gz:
+kernel/drivers/net/bnx2.ko.gz:
+kernel/drivers/net/chelsio/cxgb.ko.gz: kernel/drivers/net/mdio.ko.gz
+kernel/drivers/net/b44.ko.gz: kernel/drivers/ssb/ssb.ko.gz kernel/drivers/pcmcia/pcmcia.ko.gz kernel/drivers/pcmcia/pcmcia_core.ko.gz
+kernel/drivers/net/atlx/atl1.ko.gz:
+kernel/drivers/net/atlx/atl2.ko.gz:
+kernel/drivers/net/macvlan.ko.gz:
+kernel/drivers/net/hp100.ko.gz:
+kernel/drivers/net/sungem.ko.gz: kernel/drivers/net/sungem_phy.ko.gz
+kernel/drivers/net/sis900.ko.gz:
+kernel/drivers/net/ne2k-pci.ko.gz: kernel/drivers/net/8390.ko.gz
+kernel/drivers/net/e100.ko.gz:
+kernel/drivers/net/ac3200.ko.gz: kernel/drivers/net/8390.ko.gz
+kernel/drivers/net/8390.ko.gz:
+kernel/drivers/net/atl1e/atl1e.ko.gz:
+kernel/drivers/net/3c503.ko.gz: kernel/drivers/net/8390p.ko.gz
+kernel/drivers/net/qlge/qlge.ko.gz:
+kernel/drivers/net/3c59x.ko.gz:
+kernel/drivers/net/e1000e/e1000e.ko.gz:
+kernel/drivers/net/sfc/sfc.ko.gz: kernel/drivers/net/mdio.ko.gz
+kernel/drivers/net/benet/be2net.ko.gz:
+kernel/drivers/net/3c515.ko.gz:
+kernel/drivers/net/hp-plus.ko.gz: kernel/drivers/net/8390p.ko.gz
+kernel/drivers/net/qlcnic/qlcnic.ko.gz:
+kernel/drivers/net/8139too.ko.gz:
+kernel/drivers/net/at1700.ko.gz:
+kernel/drivers/net/pcnet32.ko.gz:
+kernel/drivers/net/ni52.ko.gz:
+kernel/drivers/net/via-velocity.ko.gz:
+kernel/drivers/net/vxge/vxge.ko.gz:
+kernel/drivers/net/skge.ko.gz:
+kernel/drivers/net/bna/bna.ko.gz:
+kernel/drivers/net/3c505.ko.gz:
+kernel/drivers/net/netxen/netxen_nic.ko.gz:
+kernel/drivers/net/sis190.ko.gz:
+kernel/drivers/net/via-rhine.ko.gz:
+kernel/drivers/net/r6040.ko.gz:
+kernel/drivers/net/ipg.ko.gz:
+kernel/drivers/net/mdio.ko.gz:
+kernel/drivers/virtio/virtio_balloon.ko.gz:
+kernel/drivers/virtio/virtio_pci.ko.gz:
+kernel/drivers/staging/zram/zram.ko.gz:
+kernel/drivers/staging/zcache/zcache.ko.gz:
+kernel/drivers/input/serio/serio_raw.ko.gz:
+kernel/drivers/input/ff-memless.ko.gz:
+kernel/drivers/input/input-polldev.ko.gz:
+kernel/drivers/input/misc/uinput.ko.gz:
+kernel/drivers/input/misc/ati_remote.ko.gz:
+kernel/drivers/input/misc/atlas_btns.ko.gz:
+kernel/drivers/input/misc/ati_remote2.ko.gz:
+kernel/drivers/input/misc/apanel.ko.gz: kernel/drivers/input/input-polldev.ko.gz
+kernel/drivers/input/misc/pcspkr.ko.gz:
+kernel/drivers/input/misc/wistron_btns.ko.gz: kernel/drivers/input/input-polldev.ko.gz kernel/drivers/input/sparse-keymap.ko.gz
+kernel/drivers/input/sparse-keymap.ko.gz:
+kernel/drivers/nfc/pn544.ko.gz:
+kernel/drivers/cpufreq/longhaul.ko.gz:
+kernel/drivers/cpufreq/mperf.ko.gz:
+kernel/drivers/cpufreq/gx-suspmod.ko.gz:
+kernel/drivers/cpufreq/speedstep-lib.ko.gz:
+kernel/drivers/cpufreq/speedstep-ich.ko.gz: kernel/drivers/cpufreq/speedstep-lib.ko.gz
+kernel/drivers/cpufreq/cpufreq-nforce2.ko.gz:
+kernel/drivers/cpufreq/powernow-k6.ko.gz:
+kernel/drivers/cpufreq/powernow-k8.ko.gz: kernel/drivers/cpufreq/mperf.ko.gz
+kernel/drivers/cpufreq/cpufreq_userspace.ko.gz:
+kernel/drivers/cpufreq/cpufreq_powersave.ko.gz:
+kernel/drivers/cpufreq/speedstep-smi.ko.gz: kernel/drivers/cpufreq/speedstep-lib.ko.gz
+kernel/drivers/cpufreq/powernow-k7.ko.gz:
+kernel/drivers/cpufreq/p4-clockmod.ko.gz: kernel/drivers/cpufreq/speedstep-lib.ko.gz
+kernel/drivers/cpufreq/cpufreq_stats.ko.gz:
+kernel/drivers/cpufreq/cpufreq_conservative.ko.gz:
+kernel/drivers/cpufreq/longrun.ko.gz:
+kernel/drivers/cpufreq/acpi-cpufreq.ko.gz: kernel/drivers/cpufreq/mperf.ko.gz
+kernel/drivers/mfd/mfd-core.ko.gz:
+kernel/drivers/mfd/vx855.ko.gz: kernel/drivers/mfd/mfd-core.ko.gz
+kernel/drivers/mfd/sm501.ko.gz:
+kernel/drivers/mfd/lpc_sch.ko.gz: kernel/drivers/mfd/mfd-core.ko.gz
+kernel/drivers/mfd/wl1273-core.ko.gz: kernel/drivers/mfd/mfd-core.ko.gz
+kernel/drivers/acpi/battery.ko.gz:
+kernel/drivers/acpi/sbs.ko.gz: kernel/drivers/acpi/sbshc.ko.gz
+kernel/drivers/acpi/sbshc.ko.gz:
+kernel/drivers/acpi/ac.ko.gz:
+kernel/drivers/acpi/video.ko.gz: kernel/drivers/video/backlight/backlight.ko.gz
+kernel/fs/ntfs/ntfs.ko.gz:
+kernel/fs/fat/msdos.ko.gz:
+kernel/fs/squashfs/squashfs.ko.gz:
+kernel/crypto/xor.ko.gz:
+kernel/crypto/async_tx/async_memcpy.ko.gz: kernel/crypto/async_tx/async_tx.ko.gz
+kernel/crypto/async_tx/async_xor.ko.gz: kernel/crypto/xor.ko.gz kernel/crypto/async_tx/async_tx.ko.gz
+kernel/crypto/async_tx/async_raid6_recov.ko.gz: kernel/crypto/async_tx/async_tx.ko.gz
+kernel/crypto/async_tx/async_pq.ko.gz: kernel/crypto/async_tx/async_xor.ko.gz kernel/crypto/xor.ko.gz kernel/crypto/async_tx/async_tx.ko.gz
+kernel/crypto/async_tx/async_tx.ko.gz:
+kernel/net/8021q/8021q.ko.gz: kernel/net/802/garp.ko.gz kernel/net/802/stp.ko.gz kernel/net/llc/llc.ko.gz
+kernel/net/802/psnap.ko.gz: kernel/net/llc/llc.ko.gz
+kernel/net/802/p8022.ko.gz: kernel/net/llc/llc.ko.gz
+kernel/net/802/stp.ko.gz: kernel/net/llc/llc.ko.gz
+kernel/net/802/garp.ko.gz: kernel/net/802/stp.ko.gz kernel/net/llc/llc.ko.gz
+kernel/net/l2tp/l2tp_core.ko.gz:
+kernel/net/llc/llc.ko.gz:
+kernel/arch/x86/kernel/microcode.ko.gz:
+kernel/arch/x86/kernel/msr.ko.gz:
+kernel/arch/x86/kernel/cpuid.ko.gz:
+kernel/arch/x86/oprofile/oprofile.ko.gz:
+kernel/lib/ts_bm.ko.gz:
+kernel/lib/bch.ko.gz:
+kernel/lib/ts_kmp.ko.gz:
+kernel/lib/reed_solomon/reed_solomon.ko.gz:
+kernel/lib/ts_fsm.ko.gz:

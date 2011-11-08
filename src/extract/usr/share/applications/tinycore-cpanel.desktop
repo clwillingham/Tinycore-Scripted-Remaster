@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Control Panel
+Exec=cpanel
+Icon=cpanel
+X-FullPathIcon=/usr/share/pixmaps/cpanel.png
+Type=Application
+Categories=System;

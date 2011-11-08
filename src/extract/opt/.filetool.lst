@@ -1,0 +1,8 @@
+opt/bootlocal.sh
+opt/bootsync.sh
+opt/shutdown.sh
+opt/tcemirror
+opt/.filetool.lst
+opt/.xfiletool.lst
+home
+opt/backgrounds
